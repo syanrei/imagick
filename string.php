@@ -1,7 +1,6 @@
 <?php
-$str=$_GET['str'];
-$file=$_GET['file'];
-
+$str  = $_GET['str'];
+$file = $_GET['file'];
 $image = new Imagick($file);
 
 $draw = new ImagickDraw();
@@ -11,8 +10,6 @@ $draw->setFillColor('#ff0000');              // 文字色
 $draw->annotation(10, 100, $str);
 $image->drawImage($draw);
 
-
-
-header("Content-Type: image/jpeg");
+header("Content-Type: image/png");
 ob_clean();
 echo $image;
